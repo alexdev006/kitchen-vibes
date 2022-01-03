@@ -1,8 +1,8 @@
 exports.handler = async (event, context) => {
     const recipes = [
-        { title: 'Pâtes bolognaise', author: ' Jon' },
-        { title: 'Pâtes carbo', author: ' Tom' },
-        { title: 'Paëlla', author: ' James' },
+        { title: 'Pâtes bolognaise', author: 'Jon' },
+        { title: 'Pâtes carbo', author: 'Tom' },
+        { title: 'Paëlla', author: 'James' },
     ]
 
     if (context.clientContext.user) {
@@ -14,7 +14,7 @@ exports.handler = async (event, context) => {
 
     return {
         satusCode: 401,
-        body: JSON.stringify({ mssg: 'You have to be logged to see this content' })
+        body: JSON.stringify({ mssg: ' Sorry, you have to be logged to see this content' })
     }
 
 }

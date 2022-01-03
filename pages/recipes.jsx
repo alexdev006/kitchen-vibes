@@ -3,7 +3,7 @@ import { useContext, useEffect, useState } from 'react';
 import AuthContext from '../stores/authContext';
 
 export default function Guides() {
-    const { user, authReady } = useContext(AuthContext)
+    const { user, authReady, login } = useContext(AuthContext)
     const [recipes, setRecipes] = useState(null);
     const [error, setError] = useState(null);
 
@@ -16,24 +16,28 @@ export default function Guides() {
             })
                 .then(res => {
                     if (!res.ok) {
+                        login()
                         throw Error('Yous must be logged in to view this content')
                     }
                     return res.json()
                 })
-                .then(data => setRecipes(data))
-                .catch((err) => {
+                .then(data => {
+                    setError(null)
+                    setRecipes(data)
+                })
+                .catch(err => {
                     setError(err.message)
                     setRecipes(null)
                 })
         }
-    }, [user, authReady]);
+    }, [user, authReady, login]);
 
     return (
         <div className={styles.recipes}>
             {!authReady && <div>Loading...</div>}
             {error && (
                 <div className={styles.error}>
-                    <p>{error} </p>
+                    <p>{error}</p>
                 </div>
             )}
             {recipes && recipes.map(recipe => (
