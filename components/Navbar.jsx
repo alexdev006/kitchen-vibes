@@ -23,7 +23,7 @@ export default function Navbar() {
             </nav>
             <div className="banner">
                 <Image
-                    src="/cooking-banner.jpg"
+                    src="/banner-cooking.jpg"
                     width={980}
                     height={280}
                     alt="banner img"
