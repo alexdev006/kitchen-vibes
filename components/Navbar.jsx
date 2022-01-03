@@ -5,7 +5,7 @@ import AuthContext from "../stores/authContext";
 
 export default function Navbar() {
 
-    const { user, login, logout, isAuthReady } = useContext(AuthContext)
+    const { user, login, logout, authReady } = useContext(AuthContext)
     console.log(user)
     return (
         <div className="container">
@@ -17,7 +17,7 @@ export default function Navbar() {
                     alt="kitchen logo"
                 />
                 <h1>Kitchen Vibes</h1>
-                {isAuthReady && (
+                {authReady && (
                     <ul>
                         <li>
                             <Link href="/"><a>Home</a></Link>
