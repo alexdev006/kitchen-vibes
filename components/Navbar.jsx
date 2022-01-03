@@ -23,7 +23,7 @@ export default function Navbar() {
                             <Link href="/"><a>Home</a></Link>
                         </li>
                         <li>
-                            <Link href="/guides"><a>Guides</a></Link>
+                            <Link href="/recipes"><a>Recipes</a></Link>
                         </li>
                         {!user && <li onClick={login} className="btn">
                             Login/signup
